@@ -17,6 +17,9 @@ import java.time.LocalDate;
 @WebListener
 public class ContextListener implements ServletContextListener {
 
+    public static final String DB_CONNECTION = "dbConnection";
+    public static final String TODO_REPO = "toDoRepo";
+
     private static final Logger logger = LoggerFactory.getLogger(ContextListener.class);
 
     @Override
@@ -30,10 +33,10 @@ public class ContextListener implements ServletContextListener {
 
         try {
             Connection conn = DriverManager.getConnection(jdbcConnectionString, username, password);
-            sc.setAttribute("dbConnection", conn);
+            sc.setAttribute(DB_CONNECTION, conn);
 
             ToDoRepository toDoRepository = new ToDoRepository(conn);
-            sc.setAttribute("toDoRepo", toDoRepository);
+            sc.setAttribute(TODO_REPO, toDoRepository);
 
             if (toDoRepository.findAll().isEmpty()) {
                 toDoRepository.insert(new ToDo(-1L, "First", LocalDate.now()));
