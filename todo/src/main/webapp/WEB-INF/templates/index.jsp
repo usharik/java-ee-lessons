@@ -12,7 +12,7 @@
 <div class="container">
     <div class="row py-2">
         <div class="col-12">
-            <c:url value="/todos/new" var="todoNewUrl"/>
+            <c:url value="/new" var="todoNewUrl"/>
             <a class="btn btn-primary" href="${todoNewUrl}">Add Todo</a>
         </div>
 
@@ -43,11 +43,11 @@
                         <c:out value="${todo.targetDate}"/>
                     </td>
                     <td>
-                        <c:url value="/todos/edit" var="todoEditUrl">
+                        <c:url value="/edit" var="todoEditUrl">
                             <c:param name="id" value="${todo.id}"/>
                         </c:url>
                         <a class="btn btn-success" href="${todoEditUrl}"><i class="fas fa-edit"></i></a>
-                        <c:url value="/todos/delete" var="todoDeleteUrl">
+                        <c:url value="/delete" var="todoDeleteUrl">
                             <c:param name="id" value="${todo.id}"/>
                         </c:url>
                         <a class="btn btn-danger" href="${todoDeleteUrl}"><i class="far fa-trash-alt"></i></a>

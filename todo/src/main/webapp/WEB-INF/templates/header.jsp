@@ -1,6 +1,6 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <c:url value="/todos" var="homeUrl"/>
+    <c:url value="/" var="homeUrl"/>
     <a class="navbar-brand" href="${homeUrl}">ToDo</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"

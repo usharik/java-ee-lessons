@@ -17,7 +17,7 @@ import java.time.format.DateTimeParseException;
 
 import static ru.geekbrains.listner.ContextListener.TODO_REPO;
 
-@WebServlet(name = "ToDoServlet", urlPatterns = "/todos/*")
+@WebServlet(name = "ToDoServlet", urlPatterns = {"", "/"})
 public class ToDoServlet extends HttpServlet {
 
     private static final Logger logger = LoggerFactory.getLogger(ToDoServlet.class);
@@ -36,14 +36,16 @@ public class ToDoServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         logger.info("PathInfo: {}", req.getPathInfo());
+        logger.info("ServletPath: {}", req.getServletPath());
+        logger.info("ResourceURL: {}", getServletContext().getResource("/WEB-INF/templates/index.jsp"));
 
-        if (req.getPathInfo() == null || req.getPathInfo().equals("/")) {
+        if (req.getServletPath().equals("/")) {
             showAllTodos(req, resp);
-        } else if (req.getPathInfo().equals("/new")) {
+        } else if (req.getServletPath().equals("/new")) {
             showNewTodoPage(req, resp);
-        } else if (req.getPathInfo().equals("/edit")) {
+        } else if (req.getServletPath().equals("/edit")) {
             showEditTodoPage(req, resp);
-        } else if (req.getPathInfo().equals("/delete")) {
+        } else if (req.getServletPath().equals("/delete")) {
             deleteTodo(req, resp);
         } else {
             resp.sendError(HttpServletResponse.SC_NOT_FOUND);
@@ -71,13 +73,13 @@ public class ToDoServlet extends HttpServlet {
             resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
             return;
         }
-        req.getRequestDispatcher("/WEB-INF/templates/index.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/WEB-INF/templates/index.jsp").forward(req, resp);
     }
 
     private void showNewTodoPage(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         req.setAttribute("todo", new ToDo());
         req.setAttribute("action", "create");
-        req.getRequestDispatcher("/WEB-INF/templates/todo.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/WEB-INF/templates/todo.jsp").forward(req, resp);
     }
 
     private void showEditTodoPage(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
@@ -99,7 +101,7 @@ public class ToDoServlet extends HttpServlet {
         }
         req.setAttribute("todo", toDo);
         req.setAttribute("action", "update");
-        req.getRequestDispatcher("/WEB-INF/templates/todo.jsp").forward(req, resp);
+        getServletContext().getRequestDispatcher("/WEB-INF/templates/todo.jsp").forward(req, resp);
     }
 
     private void deleteTodo(HttpServletRequest req, HttpServletResponse resp) throws IOException {
