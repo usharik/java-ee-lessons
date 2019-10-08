@@ -32,6 +32,7 @@ public class ContextListener implements ServletContextListener {
         String password = sc.getInitParameter("password");
 
         try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(jdbcConnectionString, username, password);
             sc.setAttribute(DB_CONNECTION, conn);
 
@@ -42,6 +43,19 @@ public class ContextListener implements ServletContextListener {
                 toDoRepository.insert(new ToDo(-1L, "First", LocalDate.now()));
                 toDoRepository.insert(new ToDo(-1L, "Second", LocalDate.now().plusDays(1)));
                 toDoRepository.insert(new ToDo(-1L, "Third", LocalDate.now().plusDays(2)));
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            logger.error("", ex);
+        }
+    }
+
+    @Override
+    public void contextDestroyed(ServletContextEvent sce) {
+        Connection conn = (Connection) sce.getServletContext().getAttribute(DB_CONNECTION);
+
+        try {
+            if (conn != null && !conn.isClosed()) {
+                conn.close();
             }
         } catch (SQLException ex) {
             logger.error("", ex);

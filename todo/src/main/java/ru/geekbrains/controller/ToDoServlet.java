@@ -39,7 +39,7 @@ public class ToDoServlet extends HttpServlet {
         logger.info("ServletPath: {}", req.getServletPath());
         logger.info("ResourceURL: {}", getServletContext().getResource("/WEB-INF/templates/index.jsp"));
 
-        if (req.getServletPath().equals("/")) {
+        if (req.getServletPath().isEmpty() || req.getServletPath().equals("/")) {
             showAllTodos(req, resp);
         } else if (req.getServletPath().equals("/new")) {
             showNewTodoPage(req, resp);
