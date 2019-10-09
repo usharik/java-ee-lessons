@@ -10,5 +10,8 @@
         <module name="todo" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="jpa-examples" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>
