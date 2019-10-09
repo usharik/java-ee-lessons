@@ -12,6 +12,7 @@
     <modules>
         <module>webapp</module>
         <module>todo</module>
+        <module>jpa-examples</module>
     </modules>
 
 </project>

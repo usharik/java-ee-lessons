@@ -6,8 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="webapp" />
         <module name="todo" />
+        <module name="jpa-examples" />
+        <module name="webapp" />
       </profile>
     </annotationProcessing>
   </component>
