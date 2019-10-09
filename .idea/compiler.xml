@@ -8,10 +8,14 @@
         <outputRelativeToContentRoot value="true" />
         <module name="webapp" />
         <module name="todo" />
+        <module name="todo-jsf" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="jpa-examples" target="1.8" />
+      <module name="java-ee-lessons" target="1.5" />
+      <module name="todo" target="1.8" />
+      <module name="todo-jsf" target="1.8" />
+      <module name="webapp" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

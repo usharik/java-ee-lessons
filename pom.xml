@@ -12,6 +12,7 @@
     <modules>
         <module>webapp</module>
         <module>todo</module>
+        <module>todo-jsf</module>
     </modules>
 
 </project>
