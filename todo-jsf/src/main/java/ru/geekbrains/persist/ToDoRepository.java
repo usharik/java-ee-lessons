@@ -7,7 +7,6 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.servlet.ServletContext;
 import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -21,26 +20,18 @@ public class ToDoRepository {
     private static final Logger logger = LoggerFactory.getLogger(ToDoRepository.class);
 
     @Inject
-    private ServletContext sc;
+    private DataSource dataSource;
 
     private Connection conn;
 
     @PostConstruct
     public void init() throws SQLException {
-        String jdbcConnectionString = sc.getInitParameter("jdbcConnectionString");
-        String username = sc.getInitParameter("username");
-        String password = sc.getInitParameter("password");
+        this.conn = dataSource.getConnection();
 
-        try {
-            this.conn = DriverManager.getConnection(jdbcConnectionString, username, password);
-
-            if (this.findAll().isEmpty()) {
-                this.insert(new ToDo(-1L, "First", LocalDate.now()));
-                this.insert(new ToDo(-1L, "Second", LocalDate.now().plusDays(1)));
-                this.insert(new ToDo(-1L, "Third", LocalDate.now().plusDays(2)));
-            }
-        } catch (SQLException ex) {
-            logger.error("", ex);
+        if (this.findAll().isEmpty()) {
+            this.insert(new ToDo(-1L, "First", LocalDate.now()));
+            this.insert(new ToDo(-1L, "Second", LocalDate.now().plusDays(1)));
+            this.insert(new ToDo(-1L, "Third", LocalDate.now().plusDays(2)));
         }
 
         createTableIfNotExists(conn);
