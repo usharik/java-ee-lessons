@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="jpa-examples:war">
+    <output-path>$PROJECT_DIR$/jpa-examples/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>jpa-examples</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="jpa-examples-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="jpa-examples:war exploded" />
+    </root>
+  </artifact>
+</component>

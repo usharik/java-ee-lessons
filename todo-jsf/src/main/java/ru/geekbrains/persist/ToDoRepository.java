@@ -28,13 +28,13 @@ public class ToDoRepository {
     public void init() throws SQLException {
         this.conn = dataSource.getConnection();
 
+        createTableIfNotExists(conn);
+
         if (this.findAll().isEmpty()) {
             this.insert(new ToDo(-1L, "First", LocalDate.now()));
             this.insert(new ToDo(-1L, "Second", LocalDate.now().plusDays(1)));
             this.insert(new ToDo(-1L, "Third", LocalDate.now().plusDays(2)));
         }
-
-        createTableIfNotExists(conn);
     }
 
     public void insert(ToDo toDo) throws SQLException {
