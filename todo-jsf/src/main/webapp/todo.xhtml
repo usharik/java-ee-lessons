@@ -24,7 +24,7 @@
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon" />
         </button>
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -43,19 +43,19 @@
 
                     <div class="form-group">
                         <h:outputLabel value="Description"/>
-                        <h:inputText styleClass="form-control" id="description" value="#{todoBean.toDo.description}"
+                        <h:inputText styleClass="form-control" id="description" value="#{toDoBean.toDo.description}"
                                      placeholder="Enter description"/>
                     </div>
 
                     <div class="form-group">
                         <h:outputLabel value="Target date"/>
                         <h:inputText p:type="date" class="form-control" id="targetDate" name="targetDate"
-                                     value="#{todoBean.toDo.targetDate}">
+                                     value="#{toDoBean.toDo.targetDate}">
                             <f:convertDateTime type="localDate" pattern="yyyy-MM-dd"/>
                         </h:inputText>
                     </div>
 
-                    <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{todoBean.saveTodo()}"/>
+                    <h:commandButton value="Submit" styleClass="btn btn-primary" action="#{toDoBean.saveTodo()}"/>
                 </h:form>
             </div>
         </div>

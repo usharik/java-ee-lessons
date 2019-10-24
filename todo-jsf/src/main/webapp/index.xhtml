@@ -17,6 +17,8 @@
 
 <h:body>
 
+    <f:event listener="${toDoBean.preloadTodoList}" type="preRenderView" />
+
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">ToDo</a>
 
@@ -39,11 +41,11 @@
         <h:form id="todosForm">
             <div class="row py-2">
                 <div class="col-12">
-                    <h:commandButton value="Add Todo" styleClass="btn btn-primary" action="#{todoBean.createTodo()}"/>
+                    <h:commandButton value="Add Todo" styleClass="btn btn-primary" action="#{toDoBean.createTodo()}"/>
                 </div>
 
                 <div class="col-12">
-                    <h:dataTable value="#{todoBean.allTodo}" var="todo"
+                    <h:dataTable value="#{toDoBean.allTodo}" var="todo"
                                  styleClass="table table-bordered my-2">
 
                         <h:column>
@@ -64,9 +66,9 @@
                         <h:column>
                             <f:facet name="header">Actions</f:facet>
                             <h:commandButton value="Edit" styleClass="btn btn-success"
-                                             action="#{todoBean.editTodo(todo)}"/>
+                                             action="#{toDoBean.editTodo(todo)}"/>
                             <h:commandButton value="Delete" styleClass="btn btn-danger"
-                                             action="#{todoBean.deleteTodo(todo)}">
+                                             action="#{toDoBean.deleteTodo(todo)}">
                                 <f:ajax event="click" render="todosForm"/>
                             </h:commandButton>
                         </h:column>

@@ -1,13 +1,20 @@
 package ru.geekbrains.persist;
 
+import javax.persistence.*;
 import java.time.LocalDate;
 
+@Entity
+@Table(name = "todos")
 public class ToDo {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(length = 4096)
     private String description;
 
+    @Column
     private LocalDate targetDate;
 
     public ToDo() {

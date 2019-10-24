@@ -1,0 +1,14 @@
+# Go to link for more info https://docs.jboss.org/author/display/AS71/CLI+Recipes#CLIRecipes-ScriptedConfiguration
+
+# 1. creating the mysql module in JBOSS_HOME/modules/mysql
+# put here correct path to your MySQL connection driver
+module add \
+   --name=com.mysql.driver \
+   --dependencies=javax.api,javax.transaction.api \
+   --resources=~/Downloads/mysql-connector-java-5.1.48/mysql-connector-java-5.1.48-bin.jar
+
+# 2. creating driver section in standalone.xml config
+/subsystem=datasources/jdbc-driver=mysql:add( driver-name=mysql, driver-module-name=com.mysql.driver, driver-class-name=com.mysql.jdbc.Driver )
+
+# 3. restarting Wildfly server
+:reload

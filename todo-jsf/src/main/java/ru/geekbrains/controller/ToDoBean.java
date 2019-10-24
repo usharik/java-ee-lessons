@@ -6,22 +6,28 @@ import ru.geekbrains.persist.ToDo;
 import ru.geekbrains.persist.ToDoRepository;
 
 import javax.enterprise.context.SessionScoped;
+import javax.faces.event.ComponentSystemEvent;
 import javax.inject.Inject;
 import javax.inject.Named;
 import java.io.Serializable;
-import java.sql.SQLException;
 import java.util.List;
 
 @SessionScoped
 @Named
-public class TodoBean implements Serializable {
+public class ToDoBean implements Serializable {
 
-    private static final Logger logger = LoggerFactory.getLogger(TodoBean.class);
+    private static final Logger logger = LoggerFactory.getLogger(ToDoBean.class);
 
     @Inject
     private ToDoRepository toDoRepository;
 
     private ToDo toDo;
+
+    private List<ToDo> toDoList;
+
+    public void preloadTodoList(ComponentSystemEvent componentSystemEvent) {
+        this.toDoList = toDoRepository.findAll();
+    }
 
     public ToDo getToDo() {
         return toDo;
@@ -31,8 +37,8 @@ public class TodoBean implements Serializable {
         this.toDo = toDo;
     }
 
-    public List<ToDo> getAllTodo() throws SQLException {
-        return toDoRepository.findAll();
+    public List<ToDo> getAllTodo() {
+        return toDoList;
     }
 
     public String createTodo() {
@@ -40,7 +46,7 @@ public class TodoBean implements Serializable {
         return "/todo.xhtml?faces-redirect=true";
     }
 
-    public String saveTodo() throws SQLException {
+    public String saveTodo() {
         if (toDo.getId() == null) {
             toDoRepository.insert(toDo);
         } else {
@@ -49,7 +55,7 @@ public class TodoBean implements Serializable {
         return "/index.xhtml?faces-redirect=true";
     }
 
-    public void deleteTodo(ToDo toDo) throws SQLException {
+    public void deleteTodo(ToDo toDo) {
         logger.info("Deleting ToDo.");
         toDoRepository.delete(toDo.getId());
     }
