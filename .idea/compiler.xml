@@ -6,14 +6,16 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="webapp" />
+        <module name="ejb-client" />
         <module name="users-impl" />
-        <module name="users-api" />
         <module name="todo" />
+        <module name="users-api" />
+        <module name="webapp" />
         <module name="todo-jsf" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="ejb-client" target="1.8" />
       <module name="java-ee-lessons" target="1.5" />
       <module name="jpa-examples" target="1.8" />
       <module name="todo" target="1.8" />

@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/ejb-client/ejb-client.iml" filepath="$PROJECT_DIR$/ejb-client/ejb-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-ee-lessons.iml" filepath="$PROJECT_DIR$/java-ee-lessons.iml" />
       <module fileurl="file://$PROJECT_DIR$/todo/todo.iml" filepath="$PROJECT_DIR$/todo/todo.iml" />
       <module fileurl="file://$PROJECT_DIR$/todo-jsf/todo-jsf.iml" filepath="$PROJECT_DIR$/todo-jsf/todo-jsf.iml" />

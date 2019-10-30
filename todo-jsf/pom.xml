@@ -82,18 +82,14 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
+
         <dependency>
             <groupId>org.jboss.spec.javax.ejb</groupId>
             <artifactId>jboss-ejb-api_3.2_spec</artifactId>
             <version>1.0.2.Final</version>
-            <scope>compile</scope>
+            <scope>provided</scope>
         </dependency>
-        <dependency>
-            <groupId>ru.geekbrains</groupId>
-            <artifactId>users-api</artifactId>
-            <version>1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
+
         <dependency>
             <groupId>ru.geekbrains</groupId>
             <artifactId>users-api</artifactId>

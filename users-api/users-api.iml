@@ -11,6 +11,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: org.jboss.spec.javax.ejb:jboss-ejb-api_3.2_spec:1.0.2.Final" level="project" />
+    <orderEntry type="library" name="Maven: org.jboss.spec.javax.ejb:jboss-ejb-api_3.2_spec:1.0.2.Final" level="project" />
   </component>
 </module>

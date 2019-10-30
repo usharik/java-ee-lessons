@@ -15,6 +15,7 @@
         <module>todo-jsf</module>
         <module>users-api</module>
         <module>users-impl</module>
+        <module>ejb-client</module>
     </modules>
 
 </project>
