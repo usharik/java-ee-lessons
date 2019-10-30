@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/java-ee-lessons.iml" filepath="$PROJECT_DIR$/java-ee-lessons.iml" />
       <module fileurl="file://$PROJECT_DIR$/todo/todo.iml" filepath="$PROJECT_DIR$/todo/todo.iml" />
       <module fileurl="file://$PROJECT_DIR$/todo-jsf/todo-jsf.iml" filepath="$PROJECT_DIR$/todo-jsf/todo-jsf.iml" />
+      <module fileurl="file://$PROJECT_DIR$/users-api/users-api.iml" filepath="$PROJECT_DIR$/users-api/users-api.iml" />
+      <module fileurl="file://$PROJECT_DIR$/users-impl/users-impl.iml" filepath="$PROJECT_DIR$/users-impl/users-impl.iml" />
       <module fileurl="file://$PROJECT_DIR$/webapp/webapp.iml" filepath="$PROJECT_DIR$/webapp/webapp.iml" />
     </modules>
   </component>

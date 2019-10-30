@@ -3,6 +3,7 @@
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/todo" />
     <file type="web" url="file://$PROJECT_DIR$/todo-jsf" />
+    <file type="web" url="file://$PROJECT_DIR$/users-impl" />
     <file type="web" url="file://$PROJECT_DIR$/webapp" />
   </component>
   <component name="MavenProjectsManager">

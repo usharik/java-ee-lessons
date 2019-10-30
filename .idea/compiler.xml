@@ -7,6 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="webapp" />
+        <module name="users-impl" />
+        <module name="users-api" />
         <module name="todo" />
         <module name="todo-jsf" />
       </profile>
@@ -16,6 +18,8 @@
       <module name="jpa-examples" target="1.8" />
       <module name="todo" target="1.8" />
       <module name="todo-jsf" target="1.8" />
+      <module name="users-api" target="1.8" />
+      <module name="users-impl" target="1.8" />
       <module name="webapp" target="1.8" />
     </bytecodeTargetLevel>
   </component>
