@@ -6,12 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="ws-client" />
         <module name="ejb-client" />
         <module name="users-impl" />
         <module name="todo" />
         <module name="users-api" />
-        <module name="webapp" />
         <module name="todo-jsf" />
+        <module name="webapp" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -23,6 +24,7 @@
       <module name="users-api" target="1.8" />
       <module name="users-impl" target="1.8" />
       <module name="webapp" target="1.8" />
+      <module name="ws-client" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

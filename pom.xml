@@ -16,6 +16,7 @@
         <module>users-api</module>
         <module>users-impl</module>
         <module>ejb-client</module>
+        <module>ws-client</module>
     </modules>
 
 </project>

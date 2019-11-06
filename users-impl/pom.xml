@@ -34,6 +34,13 @@
         </dependency>
 
         <dependency>
+            <groupId>javax.ws.rs</groupId>
+            <artifactId>javax.ws.rs-api</artifactId>
+            <version>2.1.1</version>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
             <groupId>ru.geekbrains</groupId>
             <artifactId>users-api</artifactId>
             <version>1.0-SNAPSHOT</version>
