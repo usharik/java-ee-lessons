@@ -91,6 +91,12 @@
         </dependency>
 
         <dependency>
+            <groupId>javax.annotation</groupId>
+            <artifactId>javax.annotation-api</artifactId>
+            <version>1.3.2</version>
+        </dependency>
+
+        <dependency>
             <groupId>ru.geekbrains</groupId>
             <artifactId>users-api</artifactId>
             <version>1.0-SNAPSHOT</version>

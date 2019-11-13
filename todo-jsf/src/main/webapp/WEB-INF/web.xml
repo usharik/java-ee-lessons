@@ -4,59 +4,63 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
-  <display-name>ToDo list Web Application</display-name>
+    <display-name>ToDo list Web Application</display-name>
 
-  <servlet-mapping>
-    <servlet-name>default</servlet-name>
-    <url-pattern>*.html</url-pattern>
-    <url-pattern>*.css</url-pattern>
-    <url-pattern>*.js</url-pattern>
-    <url-pattern>*.jpg</url-pattern>
-    <url-pattern>*.svg</url-pattern>
-  </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.html</url-pattern>
+        <url-pattern>*.css</url-pattern>
+        <url-pattern>*.js</url-pattern>
+        <url-pattern>*.jpg</url-pattern>
+        <url-pattern>*.svg</url-pattern>
+    </servlet-mapping>
 
-  <servlet>
-    <servlet-name>faces-servlet</servlet-name>
-    <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
-    <load-on-startup>1</load-on-startup>
-  </servlet>
+    <servlet>
+        <servlet-name>faces-servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
 
-  <servlet-mapping>
-    <servlet-name>faces-servlet</servlet-name>
-    <url-pattern>*.xhtml</url-pattern>
-  </servlet-mapping>
-  
-  <context-param>
-    <param-name>jdbcConnectionString</param-name>
-    <param-value>jdbc:mysql://localhost:3306/javaee_todo_db?createDatabaseIfNotExist=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=UTC</param-value>
-  </context-param>
+    <servlet-mapping>
+        <servlet-name>faces-servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
 
-  <context-param>
-    <param-name>username</param-name>
-    <param-value>root</param-value>
-  </context-param>
+    <welcome-file-list>
+        <welcome-file>index.xhtml</welcome-file>
+    </welcome-file-list>
 
-  <context-param>
-    <param-name>password</param-name>
-    <param-value>root</param-value>
-  </context-param>
+    <error-page>
+        <error-code>404</error-code>
+        <location>/WEB-INF/error.jsp</location>
+    </error-page>
 
-  <welcome-file-list>
-    <welcome-file>index.xhtml</welcome-file>
-  </welcome-file-list>
+    <error-page>
+        <error-code>400</error-code>
+        <location>/WEB-INF/error.jsp</location>
+    </error-page>
 
-  <error-page>
-    <error-code>404</error-code>
-    <location>/WEB-INF/error.jsp</location>
-  </error-page>
+    <error-page>
+        <error-code>500</error-code>
+        <location>/WEB-INF/error.jsp</location>
+    </error-page>
 
-  <error-page>
-    <error-code>400</error-code>
-    <location>/WEB-INF/error.jsp</location>
-  </error-page>
+    <login-config>
+        <auth-method>FORM</auth-method>
+        <realm-name>RealmUsersRoles</realm-name>
+        <form-login-config>
+            <form-login-page>/login.xhtml</form-login-page>
+            <form-error-page>/WEB-INF/error.jsp</form-error-page>
+        </form-login-config>
+    </login-config>
 
-  <error-page>
-    <error-code>500</error-code>
-    <location>/WEB-INF/error.jsp</location>
-  </error-page>
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>Admin resources</web-resource-name>
+            <url-pattern>/admin/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <role-name>ADMIN</role-name>
+        </auth-constraint>
+    </security-constraint>
 </web-app>

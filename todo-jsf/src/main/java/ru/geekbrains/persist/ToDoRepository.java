@@ -4,6 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;
 import javax.persistence.EntityManager;
@@ -13,6 +15,7 @@ import java.time.LocalDate;
 import java.util.List;
 
 @Stateless
+@PermitAll
 //@TransactionManagement(javax.ejb.TransactionManagementType.BEAN)
 public class ToDoRepository implements Serializable {
 
@@ -30,16 +33,19 @@ public class ToDoRepository implements Serializable {
         }
     }
 
+    @RolesAllowed("ADMIN")
     @TransactionAttribute
     public void insert(ToDo toDo) {
         em.persist(toDo);
     }
 
+    @RolesAllowed("ADMIN")
     @TransactionAttribute
     public void update(ToDo toDo) {
         em.merge(toDo);
     }
 
+    @RolesAllowed("ADMIN")
     @TransactionAttribute
     public void delete(long id) {
         ToDo toDo = em.find(ToDo.class, id);
